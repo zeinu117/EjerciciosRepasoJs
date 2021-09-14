@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h3>1 - Desplegar todos los dígitos decimales, del 0 al 9, utilizando una estructura de repeticion.</h3>
+        
+        <script>
+            for (let index = 0; index < 10; index++) {
+                document.write(index + "<br>");
+            }
+        </script>
+        
+        <hr>
+        <h3>2 - Desplegar todos los numeros entres 50 y 150 con una estructura de repeticion</h3>
+        
+        <script>
+            for (let i = 50; i < 151; i++) {
+                document.write(i + "<br>");
+            }
+        </script>
+        
+        <hr>
+        <h3>3 - Desplegar los números entre el 8 y el 40, saltando de 2 en 2</h3>
+        
+        <script>
+            for (let i = 8; i < 41; i =i+2) {
+                document.write(i + "<br>");
+            }
+        </script>
+        
+        <hr>
+        <h3>4 - Pedir al usuario que ingrese una cantidad, la cantidad ingresada por el usuario sera el numero de
+            iteraciones que hara el programa, en cada iteracion pedirle al usuario que ingrese un numero,
+            al final imprimir la suma de cada numero ingresado por el usuario.</h3>
+        <label for="iteraciones">Ingrese el numero de iteraciones </label>
+        <input type="number" id="iteraciones">
+        <p></p>
+        <button type="button" class="btn btn-primary" onclick="myFunction()">Iteraciones</button>  
+        
+        <script>
+            function myFunction() {  
+                let numero = [];
+                let suma = 0;  
+                let iteraciones = parseFloat(document.getElementById("iteraciones").value);
+                for (let i = 0; i < iteraciones; i++) {
+                    numero[i] = Number(prompt("ingrese el numero"));
+                    suma = suma + numero[i];
+                }
+                alert("El resultado es: " + suma);
+            }
+        </script>
+        
+        <hr>
+        <h3>5 - Pedir al usuario que ingrese una palabra o frase y luego imprimir un listado de la
+            cantidad de vocales que aparecen en esa palabra o frase.</h3>
+            <!--
+            <label for="frase">Ingrese una frase o palabra</label>
+            <input type="text" id="frase">
+            -->
+            <p></p>
+            <button type="button" class="btn btn-primary" onclick="myFunction2()">Buscar vocales</button>
+            
+            <script>
+                /*
+                function myFunction() {  
+                    
+                    let cadena = document.getElementById("frase").value;
+                    let numeroVocales = cadena.match(/[aeiouAEIOU]/gi,'').length;
+                    document.write("el numero de vocales encontradas son:" + numeroVocales);
+                }
+                */
+                function myFunction2(){
+                    let cadena = prompt("ingrese una frase o palabra");
+                    let vocales = "aeiouAEIOU";
+                    let contador = [0,0,0,0,0,0,0,0,0,0];
+                    for (let i = 0; i <cadena.length; i++) {
+                        for (let j = 0; j < vocales.length; j++) {
+                            if (cadena.charAt(i) == vocales.charAt(j)) {
+                                contador[j]++;
+                            }
+                            
+                        }
+                        
+                    }
+                    for (let i = 0; i < vocales.length; i++) {
+                        document.write("aparece la letra " + vocales.charAt(i) + ": "+ contador[i] + " veces " +"<br>")
+                    }
+                }
+            </script>
+            
+        <hr>
+        <h3>6 - Desarrollar un programa que con una estructura de repeticion imprima la sumatoria
+            de todos los numeros entre 1 y 50</h3>
+        
+        <script>
+            let numero = [];
+            let suma = 0; 
+            for (let i = 1; i < 51; i++) {
+                numero[i] = Number(i);
+                suma = suma + numero[i];
+                document.write(i + "<br>");
+                
+            }
+            document.write("suma total: " + suma);
+        </script>
+        
+        <hr>
+        <h3>7 - Dado un numero entero positivo obtener el factorial del mismo.</h3>
+            <label for="frase">Ingrese un numero</label>
+            <input type="number" id="numero" min="1" pattern="^[0-9]+">
+            <p></p>
+            <button type="button" class="btn btn-primary" onclick="myFunction3()">factorial</button>
+            <script>
+                function myFunction3() {  
+                    let numero = parseInt(document.getElementById("numero").value);
+                    let total = 1; 
+                    for (i=1; i<=numero; i++) {
+                        total = total * i; 
+                    }
+                    document.write(total);
+                }
+            </script>
+        <hr>
+        <h3>8 - Escribir un programa que permita al usuario ingresar 6 números enteros, que pueden ser positivos o
+            negativos.
+            Al finalizar, mostrar la sumatoria de los números negativos y el promedio de los positivos.
+            No olvides que no es posible dividir por cero, por lo que es necesario evitar que el programa
+            arroje un error si no se ingresaron números positivos.</h3>
+            <button type="button" class="btn btn-primary" onclick="myFunction4()">Ingresar numeros</button>
+            <script>
+                function myFunction4() {
+                    let numero = [];
+                    let sumaP = 0;
+                    let sumaN = 0;
+                    let cantidadPositivos = 0;
+                    for (let i = 0; i < 6; i++) {
+                        numero = parseInt(prompt("ingrese un numero"));
+                        if (numero > 0) {
+                            sumaP = sumaP + numero;
+                            cantidadPositivos = cantidadPositivos + 1;
+                        }else{
+                            sumaN=sumaN+numero;
+                        }
+                    }
+                    document.write("sumas de los negativos: " + sumaN + "<br>");
+                        if (cantidadPositivos != 0) {
+                            document.write("promedio de los positivos: " + sumaP / cantidadPositivos);
+                        }else{
+                            document.write("no se ingresaron positivos: " + "<br>");
+                        }
+                }
+            </script>
+            <hr>
+        
+        <script src="script.js"></script>
+            </div>
+        </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
